@@ -160,21 +160,5 @@
             <div class="video-title">Gym</div>    
     </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-    let videos = document.querySelectorAll("video[loading='lazy']");
-    let observer = new IntersectionObserver(function(entries, self) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.load();
-                self.unobserve(entry.target);
-            }
-        });
-    });
-
-    videos.forEach(video => observer.observe(video));
-});
-
-    </script>
 </body>
 </html>
