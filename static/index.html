@@ -34,7 +34,6 @@
             </div> 
             <a href="#blogs">Blogs</a>
             <a href="/static/login.html">Login</a>
-            <span id="username-display" class="username-display"></span>
         </nav>
     </header>
     <!-- Header section ends -->
@@ -195,19 +194,5 @@
 
     <!-- Swiper JS for slider functionality -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    
-    <!-- Custom JS file -->
-    <script>
-                // Example: Fetching username after login
-                window.onload = function() {
-            const username = localStorage.getItem('username'); // Fetch username from local storage or session storage
-            const usernameDisplay = document.getElementById('username-display');
-            if (username) {
-                usernameDisplay.innerText = `Hello, ${username}`; // Display username
-            } else {
-                usernameDisplay.innerText = ''; // Clear if not logged in
-            }
-        };
-    </script>
 </body>
 </html>

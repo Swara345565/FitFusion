@@ -32,38 +32,87 @@
             <source src="videos/pexels-roman-odintsov-8233009 (2160p).mp4" type="video/mp4">
         </video>
         <video controls loading="lazy">
-            <source src="" type="video/mp4">
+            <source src="/static/videos/pexels-thirdman-6955855 (1080p).mp4" type="video/mp4">
         </video>
         <video controls loading="lazy">
-            <source src="" type="video/mp4">
+            <source src="videos/pexels-tima-miroshnichenko-6388436 (2160p).mp4" type="video/mp4">
         </video>
         <video controls loading="lazy">
-            <source src="" type="video/mp4">
+            <source src="videos/pexels_videos_2785536 (2160p).mp4" type="video/mp4">
         </video>
         <video controls loading="lazy">
-            <source src="" type="video/mp4">
+            <source src="videos/pexels_videos_2790143 (2160p).mp4" type="video/mp4">
         </video>
         <video controls loading="lazy">
-            <source src="" type="video/mp4">
+            <source src="videos/production_id_3760963 (2160p).mp4" type="video/mp4">
         </video>
         <video controls loading="lazy">
-            <source src="" type="video/mp4">
+            <source src="videos/production_id_3761206 (2160p).mp4" type="video/mp4">
         </video>
         <video controls loading="lazy">
-            <source src="" type="video/mp4">
+            <source src="videos/production_id_3959048 (2160p).mp4" type="video/mp4">
         </video>
         <video controls loading="lazy">
-            <source src="" type="video/mp4">
+            <source src="videos/production_id_4065388 (2160p).mp4" type="video/mp4">
         </video>
         <video controls loading="lazy">
-            <source src="" type="video/mp4">
+            <source src="videos/production_id_4110584 (2160p).mp4" type="video/mp4">
         </video>
         <video controls loading="lazy">
-            <source src="" type="video/mp4">
+            <source src="videos/production_id_4441007 (1080p).mp4" type="video/mp4">
         </video>
         <video controls loading="lazy">
-            <source src="" type="video/mp4">
+            <source src="videos/production_id_4754030 (2160p).mp4" type="video/mp4">
+        </video>
+        <video controls loading="lazy">
+            <source src="videos/production_id_4761426 (2160p).mp4" type="video/mp4">
+        </video>
+        <video controls loading="lazy">
+            <source src="videos/production_id_4761763 (2160p).mp4" type="video/mp4">
+        </video>
+        <video controls loading="lazy">
+            <source src="videos/production_id_4812848 (2160p).mp4" type="video/mp4">
+        </video>
+        <video controls loading="lazy">
+            <source src="videos/woman_stretching_near_a_cliff (720p).mp4" type="video/mp4">
+        </video>
+        <video controls loading="lazy">
+            <source src="videos/video (2160p).mp4" type="video/mp4">
+        </video>
+        <video controls loading="lazy">
+            <source src="videos/video (2160p) (6).mp4" type="video/mp4">
+        </video>
+        <video controls loading="lazy">
+            <source src="videos/video (1080p).mp4" type="video/mp4">
+        </video>
+        <video controls loading="lazy">
+            <source src="videos/video (2160p) (2).mp4" type="video/mp4">
+        </video>
+        <video controls loading="lazy">
+            <source src="videos/video (2160p) (3).mp4" type="video/mp4">
+        </video>
+        <video controls loading="lazy">
+            <source src="videos/video (2160p) (4).mp4" type="video/mp4">
+        </video>
+        <video controls loading="lazy">
+            <source src="videos/video (2160p) (5).mp4" type="video/mp4">
         </video>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    let videos = document.querySelectorAll("video[loading='lazy']");
+    let observer = new IntersectionObserver(function(entries, self) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.load();
+                self.unobserve(entry.target);
+            }
+        });
+    });
+
+    videos.forEach(video => observer.observe(video));
+});
+
+    </script>
 </body>
 </html>
