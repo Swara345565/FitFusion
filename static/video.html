@@ -14,7 +14,7 @@
 
         /* Global Styles */
         body {
-            background-color: #f4f6f9; /* Soft off-white background */
+            background-color:#f4f4f4; /* Soft off-white background */
             color: #333; /* Dark text for readability */
             font-family: 'Roboto', sans-serif; /* Clean, modern font */
             text-align: center;
@@ -41,17 +41,26 @@
 
         /* Video Grid */
         .video-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+            display: flex;
+            flex-wrap: wrap;
             gap: 30px;
-            padding: 20px;
+            justify-content: center; /* Center the video items */
             max-width: 1200px;
             margin: 0 auto;
         }
-
+        .video-item {
+            width: 300px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .video-item2{
+            width: 300px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
         video {
             width: 100%;
-            height: auto;
+            height: 172.25px;
             border: 4px solid #3498db; /* Light blue border for emphasis */
             border-radius: 10px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -62,6 +71,16 @@
         video:hover {
             transform: scale(1.03); /* Slight zoom effect */
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+        .video-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 8px;
+            color: #333;
+            text-align: left; /* Aligns to the left like YouTube */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
 
         /* Scrollbar Styles */
@@ -98,24 +117,64 @@
 
     <div class="video-container">
         <!-- Video elements with lazy loading for optimization -->
+         <div class = "video-item">
         <video controls loading="lazy">
             <source src="videos/pexels_videos_2790143 (2160p).mp4" type="video/mp4">
         </video>
+        <div class="video-title">Stretching</div>
+    </div>
+         <div class = "video-item2">
         <video controls loading="lazy">
             <source src="videos/pexels-artem-podrez-6254849 (2160p).mp4" type="video/mp4">
         </video>
-        <video controls loading="lazy">
-            <source src="videos/pexels-cottonbro-5385959 (2160p).mp4" type="video/mp4">
-        </video>
-        <video controls loading="lazy">
-            <source src="videos/pexels-cottonbro-5385964 (2160p).mp4" type="video/mp4">
-        </video>
-        <video controls loading="lazy">
-            <source src="videos/pexels-mikhail-nilov-6892618 (1080p).mp4" type="video/mp4">
-        </video>
-        <video controls loading="lazy">
-            <source src="videos/pexels-roman-odintsov-8233009 (2160p).mp4" type="video/mp4">
-        </video>
+        <div class="video-title">Muscle Gain</div>
     </div>
+    <div class = "video-item">
+        <video controls loading="lazy">
+        <source src="videos/video (1080p).mp4" type="video/mp4">
+    </video>
+    <div class = "video-title">Meditaion</div>
+    </div>    
+    <div class="video-item">
+        <video controls loading="lazy">
+            <source src="videos/pexels_videos_2785536 (2160p).mp4" type="video/mp4">
+        </video>
+        <div class="video-title">Full Body Workout</div>
+    </div>
+    <div class="video-item">
+        <video controls loading="lazy">
+            <source src="videos/production_id_4110584 (2160p).mp4" type="video/mp4">
+        </video>
+        <div class="video-title">Cardio Session</div>
+    </div>
+        <div class="video-item">
+        <video controls loading="lazy">
+            <source src="videos/video (2160p) (4).mp4" type="video/mp4">
+        </video>
+        <div class="video-title">Running</div>
+        </div>
+        <div class="video-item">
+            <video controls loading="lazy">
+                <source src="videos/video (2160p) (2).mp4" type="video/mp4">
+            </video>
+            <div class="video-title">Gym</div>    
+    </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    let videos = document.querySelectorAll("video[loading='lazy']");
+    let observer = new IntersectionObserver(function(entries, self) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.load();
+                self.unobserve(entry.target);
+            }
+        });
+    });
+
+    videos.forEach(video => observer.observe(video));
+});
+
+    </script>
 </body>
 </html>
